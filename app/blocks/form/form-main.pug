@@ -1,0 +1,13 @@
+form.form.form--main(novalidate="", @submit.prevent="sendForm;")
+	.form__inner
+		.form__title
+			h2 Заявка на расчёт
+		label.form__line
+			input(type="tel",placeholder="Телефон",name="phone",v-maskPhone, v-model = "formPhone",@input="formError = ''").form__input
+			span.form__label Телефон
+			.form__error {{formError}}
+		.form__sent
+			button(type="submit",@click="sendForm").button
+				span.button__text Отправить
+
+		.form__disclaimer Мы не храним и не обрабатываем ваши личные данные

@@ -1,0 +1,68 @@
+clearfix()
+	&:before,
+	&:after
+		content: '';
+		display: table;
+	&:after
+		clear: both;
+
+fullfake()
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+row()
+	width 100%
+	max-width 1200px
+	margin 0 auto
+
+backimage()
+	background-size cover
+	background-position center
+	background-repeat no-repeat
+
+flex-center()
+	display flex
+	justify-content center
+
+title()
+	font-size 64px
+	line-height 80px
+	@media screen and (max-width 650px)
+		font-size: 56px
+		line-height: 75px
+
+subtitle()
+	font-size 56px
+	line-height 75px
+	@media screen and (max-width 1060px)
+		font-size: 42px
+		line-height: 50px
+	@media screen and (max-width 650px)
+		font-size: 25px
+		line-height: 35px
+
+minititle()
+	font-size 36px
+	line-height 50px
+	@media screen and (max-width 650px)
+		font-size: 25px
+		line-height: 35px
+
+text-big()
+	font-size 24px
+	line-height 40px
+	@media screen and (max-width 650px)
+		font-size: 20px
+		line-height: 28px
+
+text-medium()
+	font-size 16px
+	line-height: 25px
+
+text-small()
+	font-size 12px
+	line-height 18px

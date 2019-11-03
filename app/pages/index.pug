@@ -1,0 +1,17 @@
+//- Выбираем шаблон
+extends  ../blocks/layouts/default
+
+
+block head
+	- var pageTitle = 'Будет чисто'
+
+
+
+block content
+
+	transition(name='scale', mode="out-in", appear)
+		include ../blocks/main/main
+		include ../blocks/calculator/calculator
+		include ../blocks/feedback/feedback
+	//- p {{ message }}
+

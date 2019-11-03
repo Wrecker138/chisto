@@ -1,0 +1,68 @@
+section.calculator( v-if="showCalc",:key="'calculator'")
+	.calculator__topline
+		h2.calculator__title.g-minititle Калькулятор стоимости
+		a(href="javascript://",@click="showCalc = false; showMain = true; isResidential = true; isSquareInput = false;isCalcFormShow = false;defaultPrice = 4000;isFurniture = false;squareAmount = 10; calcData='';").calculator__closer
+			include ../icons/icon-close
+	.calculator__inner
+		.calculator__interface
+			.calculator__controls
+				.calculator__group
+					.calculator__caption Помещение
+					.calculator__tabs
+						a(href="javascript://", :class="{active:isResidential}",@click='isResidential = true; defaultPrice = 4000; squareAmount = 10;renderList();isFurniture = false; collectCalcData(); ') Жилое
+						a(href="javascript://",:class="{active:!isResidential}",@click='isResidential = false; defaultPrice = squareAmount * 140; wcAmount = 1; roomAmount = 1; strRoom = "1 комната"; strWc = "1 санузел";renderList();isFurniture = false; collectCalcData(); ') Нежилое
+					.calculator__togglers
+						.calculator__inline(v-if="isResidential")
+							a(href="javascript://",id="roomDec",@click='delValue("roomAmount","strRoom","комната","комнаты","комнат","roomPrice")',:class="{disabled: roomAmount == 1}").calculator__num.calculator__num--dec
+								include ../icons/icon-minus
+							.calculator__value#roomVal {{strRoom}}
+							a(href="javascript://",id="roomInc",@click='addValue("roomAmount","strRoom","комната","комнаты","комнат","roomPrice")').calculator__num.calculator__num--inc
+								include ../icons/icon-plus
+						.calculator__inline(v-if="isResidential")
+							a(href="javascript://",id="wcDec",@click='delValue("wcAmount","strWc","санузел","санузла","санузлов","wcPrice")',:class="{disabled: wcAmount == 0}").calculator__num.calculator__num--dec
+								include ../icons/icon-minus
+							.calculator__value#wcVal {{strWc}}
+							a(href="javascript://",id="wcDec",@click='addValue("wcAmount","strWc","санузел","санузла","санузлов","wcPrice")').calculator__num.calculator__num--inc
+								include ../icons/icon-plus
+						.calculator__block(v-else)
+							.calculator__caption Площадь, м²
+							.calculator__inline
+								a(href="javascript://",@click='delValue("squareAmount","squareVal",null,null,null,"squarePrice"); fixSquareValue()',:class="{disabled: squareAmount <= 10}").calculator__num.calculator__num--dec
+									include ../icons/icon-minus
+								a(href="javascript://",@click="isSquareInput = true;",v-if="!isSquareInput").calculator__value.calculator__value--toggler {{squareAmount}}
+								input.calculator__input(type="tel",v-model.trim.number="squareAmount",v-if="isSquareInput",@change="countBySquare(squareAmount)",v-focus)
+								a(href="javascript://",,@click='addValue("squareAmount","squareVal",null,null,null,"squarePrice"); fixSquareValue()').calculator__num.calculator__num--inc
+									include ../icons/icon-plus
+					.calculator__group
+						.calculator__caption Мебель
+						.calculator__tabs
+							label(:class="{active:!isFurniture}")
+								input(type="radio",name="furniture",:checked="!isFurniture",@change="isFurniture = false; checkFurniture();")
+								span Нет
+							label(:class="{active:isFurniture}",)
+								input(type="radio",name="furniture",@change="isFurniture = true; checkFurniture();")
+								span Есть
+
+							//- a(href="javascript://",,@click='isFurniture = false; checkFurniture();') Нет
+							//- a(href="javascript://",@click='isFurniture = true; checkFurniture();') Есть
+
+		.calculator__info
+			.calculator__caption Стоимость уборки
+			.calculator__result
+				.calculator__price.g-title <span>от</span> {{defaultPrice}} ₽
+				.calculator__time(ref="calcList") Будет чисто
+					nobr за&nbsp;
+						span {{realTime}}
+			.calculator__wrap
+				.calculator__list
+					.calculator__disclaimer Как это будет
+					ul
+						li(v-for="listItem in filterList(listOutput)") {{listItem}}
+
+				.calculator__application
+					.main__calcline(v-show="!isCalcFormShow")
+						a(href="javascript://",@click="isCalcFormShow = true",:class="{fixed: isMobile == true}").button.button--big
+							span.button__text Отправить заявку
+						.main__disclaimer Работаем по Екатеринбургу <br> и Свердловской области
+					.calculator__form(v-show="isCalcFormShow")
+						include ../form/form-calc

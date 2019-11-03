@@ -1,0 +1,109 @@
+.form
+	// background-color #fff
+	&--calc
+		& ^[0]__inner
+			padding 0
+
+		& ^[0]__line
+			margin-right 30px
+			margin-bottom 0
+
+		& ^[0]__sent
+			flex-shrink: 0;
+			margin-bottom: 0
+
+	&__inner
+		padding 55px 70px
+
+	&__title
+		h2
+			text-big()
+		margin-bottom 30px
+
+	&__group
+		display flex
+		align-items: center
+		margin-bottom: 20px
+
+	&__line
+		display flex
+		flex-direction: column
+		margin-bottom 30px
+		position relative
+		&.error
+			& ^[0]__input
+				border-bottom-color: $c-orange
+
+	&__input
+		border-bottom 1px solid $c-black
+		transition all .3s
+		&::-webkit-input-placeholder
+			transition opacity .3s
+
+		&::placeholder
+			transition opacity .3s
+		&:focus
+			border-bottom-color $c-orange
+
+		&:focus,&:not(:placeholder-shown)
+			&::-webkit-input-placeholder
+				opacity 0
+
+			&::placeholder
+				opacity 0
+
+			&  + ^[0]__label
+				top -20px
+				opacity .5
+
+	&__topline
+		display none
+
+	&__label
+		text-small()
+		opacity 0
+		position absolute
+		left 0
+		top 0
+		transition: all .3s
+
+	&__error
+		text-small()
+		color $c-orange
+
+	&__sent
+		margin-bottom: 30px
+
+	&__disclaimer
+		text-small()
+		opacity .5
+
+	&__rules
+		text-small()
+		opacity .5
+		margin-top: 15px
+		a
+			color $c-orange
+
+@media screen and (max-width 1180px)
+	.form
+		&__inner
+			padding: 32px 70px
+
+@media screen and (max-width 730px)
+	.form
+		&__inner
+			padding: 55px 50px 65px
+
+@media screen and (max-width 650px)
+	.form
+		&--calc
+			& ^[0]__line
+				margin-right: 20px
+				width calc(100% - 70px)
+
+		&__topline
+			display flex
+			align-items center
+			justify-content space-between
+			margin-bottom: 90px

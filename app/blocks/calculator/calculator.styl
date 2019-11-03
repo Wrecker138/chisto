@@ -1,0 +1,289 @@
+@keyframes fadeBtn
+	0%
+		opacity 0
+
+	100%
+		opacity 1
+
+.calculator
+	padding: 55px 0 60px
+
+	&__topline
+		display flex
+		justify-content: space-between
+		align-items: center
+		margin-bottom 25px
+
+	&__title
+		font-weight: 600
+
+	&__inner
+		background-color: #fff
+		display flex
+		box-shadow $shadowMedium
+
+	&__interface
+		padding 55px 80px 75px
+		border-right: 2px solid $c-whitegrey
+
+	&__info
+		padding 55px 20px 35px 80px
+		width 100%
+
+	&__caption
+		text-big()
+		margin-bottom 25px
+		font-weight 600
+
+	&__controls
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+	&__tabs
+		display flex
+		label,a
+			user-select none
+			white-space: nowrap
+			cursor pointer
+			color $c-black
+			font-weight 600
+			display block
+			background-color $c-whitegrey
+			padding: 17px 25px;
+			border-radius: $radiusSmall;
+			text-medium()
+			line-height: 1em
+			position relative
+			margin-right: -6px
+			text-align: center;
+			flex-grow: 1;
+			input
+				display none
+			&.active
+				color #fff
+				background-color: $c-orange
+				z-index 2
+			&:last-child
+				margin-right: 0
+
+	&__togglers
+		margin: 35px 0
+
+	&__inline
+		display flex
+		align-items center
+		margin-bottom: 30px
+		user-select none
+		justify-content: space-between;
+		&:last-child
+			margin-bottom 0
+
+	&__num
+		display flex
+		width 40px
+		height 40px
+		border 2px solid $c-orange
+		border-radius: $radiusSmall;
+		flex-shrink: 0
+		svg
+			margin auto
+			transiiton all .3s
+		&.disabled
+			pointer-events: none
+			border-color $c-lightgrey
+			svg
+				g
+					fill $c-lightgrey
+
+	&__value
+		font-weight: 600
+		&--toggler
+			border-bottom 1px dashed alpha(#000, .3)
+			color $c-black
+
+	&__input
+		text-align: center;
+		font-weight: 600
+		padding 0 10px
+		transition all .3s
+		width 100%
+
+	&__price
+		font-weight: 600;
+		margin-right: 35px
+		white-space: nowrap;
+		span
+			minititle()
+
+	&__result
+		margin -15px 0 25px
+		display flex
+		align-items center
+		// flex-wrap: wrap
+
+	&__time
+		border-radius: 50px
+		background-color: $c-whitegrey
+		padding 13px 25px 13px 60px
+		position relative
+		flex-shrink: 1
+		&:before
+			content ''
+			position absolute
+			top 50%
+			transform translate(0, -50%)
+			left 18px
+			line-height: 1em
+			width 33px
+			height 33px
+			background-image url('../images/icon-zina.png')
+			background-position center
+			background-size cover
+			border-radius: 50%
+		span
+			color $c-orange
+			font-weight: 600
+
+	&__disclaimer
+		font-weight: 600
+		line-height: 1em
+		margin-bottom 15px
+
+	&__list
+		margin-bottom: 55px
+		ul
+			li
+				position relative
+				margin-bottom: 10px
+				&:last-child
+					margin-bottom: 0
+				&:before
+					content '•'
+					top 50%
+					transform translate(0, -50%)
+					position absolute
+					left -15px
+					color $c-orange
+
+@media screen and (max-width 1180px)
+		.calculator
+			padding: 25px 0 30px
+
+			&__wrap
+				display flex
+				justify-content space-between
+				align-items: flex-start
+				flex-wrap: wrap
+
+			&__interface
+				padding 35px 50px 55px
+
+			&__price
+				margin: 0 0 30px
+
+			&__info
+				padding 35px 50px 25px
+
+			&__result
+				flex-direction: column
+				align-items: flex-start
+				margin-bottom: 45px
+
+			&__list
+				margin-bottom: 25px;
+				margin-right: 20px
+
+@media screen and (max-width 1080px)
+		.calculator
+			padding 45px 0 0
+
+			&__inner
+				flex-direction: column
+				width calc(100% + 50px)
+				margin: 0 -25px
+
+			&__result
+				align-items: center
+
+
+			&__time
+				white-space: nowrap
+				margin: 0 -10px
+
+			&__togglers
+				flex-direction: column;
+				display: flex;
+				align-items: flex-start;
+
+			&__inline
+				min-width 228px
+
+			&__input
+				margin: 0 10px
+				width: calc(100% - 20px);
+				border-bottom 1px solid $c-black
+				&:focus
+					border-bottom-color $c-orange
+
+			&__interface
+				border-right: 0
+
+			&__interface
+				padding 55px 25px 25px
+
+			&__info
+				padding 15px 25px 60px
+				& ^[0]__caption
+					text-align: center
+
+			&__wrap
+				flex-direction: column
+
+			&__list
+				 margin-bottom 30px
+
+@media screen and (max-width 650px)
+		.calculator
+			&__inline, &__block
+				width 100%
+
+			&__info
+				padding: 15px 25px 30px
+
+				& .main__disclaimer
+					display none
+
+			&__application
+				& .button--big
+					&.fixed
+						position fixed
+						left 0
+						bottom 0
+						width 100%
+						z-index 10
+						border-radius: unset
+						animation fadeBtn .4s
+
+			&__list
+				text-medium()
+				margin: 0
+				ul
+					li
+						margin-bottom: 5px
+						&:before
+							transform: none;
+							top: 1px;
+
+			&__form
+				position fixed
+				background-color: #fff
+				top 0
+				left 0
+				height 100%
+				width 100%
+				z-index 20
+				padding: 35px 25px 90px
+				display flex
+				& .form
+					margin auto

@@ -1,0 +1,14 @@
+section.feedback( v-if="showFeed",:key="'feedback'")
+	.feedback__topline
+		h2.feedback__title.g-minititle Заявка
+		a(href="javascript://",@click="showFeed = false; showMain = true; isResidential = true; isSquareInput = false;isCalcFormShow = false; formPhone = '';defaultPrice = 4000;isFurniture = false;squareAmount = 10; calcData='';").feedback__closer
+			include ../icons/icon-close
+	.feedback__inner
+		.feedback__info
+			h2.feedback__title.g-subtitle Заявка отправлена
+			.feedback__text Менеджер свяжется с вами <br> по телефону&nbsp;
+				b {{formPhone}}
+			a(href="javascript://",@click="showFeed = false; showMain = true; isResidential = true; isSquareInput = false;isCalcFormShow = false; formPhone = '';defaultPrice = 4000;isFurniture = false;squareAmount = 10; calcData='';").button.button--big
+				span.button__text Закрыть
+		.feedback__arrow
+			include ../icons/icon-arrow

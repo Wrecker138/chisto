@@ -1,0 +1,22 @@
+header.header
+	.header__row
+		.header__block
+			template( v-if="showMain")
+				.header__logo
+					img(src="assets/images/logo@2x.jpg")
+			template( v-else)
+				a(href="javascript://",@click="showFeed = false;showCalc = false; showMain = true; isResidential = true; isSquareInput = false;isCalcFormShow = false; formPhone = '';defaultPrice = 4000;isFurniture = false;squareAmount = 10;").header__logo
+					img(src="assets/images/logo@2x.jpg")
+			.header__caption Оперативный клининг<br> после ремонта
+		.header__block
+			a(href='tel:+7 343 288-55-44').header__phone
+				span.icon
+					include ../icons/icon-phone
+				span.text +7 343 288-55-44
+			.header__social
+				a(href="javascript://",target="_blank")
+					include ../icons/insta
+				a(href="javascript://",target="_blank")
+					include ../icons/vk
+				a(href="javascript://",target="_blank")
+					include ../icons/fb

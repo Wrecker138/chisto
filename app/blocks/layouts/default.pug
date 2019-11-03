@@ -1,0 +1,25 @@
+doctype html
+html(lang="ru-RU")
+	include ../head/head
+	body
+		.g-page.g-wrapper#app(v-cloak)
+			//- Служебные переменные
+			block settings
+
+			//- Шапка
+			include ../header/header
+
+			//- Контентные блоки
+			p {{info}}
+			block content
+
+
+			//- Подвал
+			include ../footer/footer
+
+
+		//- Скрипты
+		script(src='https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js')
+		script(src='https://unpkg.com/axios/dist/axios.min.js')
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+		script(src="assets/scripts/general.min.js")

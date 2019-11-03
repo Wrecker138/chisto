@@ -1,0 +1,52 @@
+.footer
+	text-small()
+	padding-bottom: 25px
+
+	&__row
+		display flex
+		justify-content: space-between
+		align-items: center
+
+	&__phone
+		display none
+
+	&__pxl
+		display: flex;
+		align-items center
+		svg
+			fill: $c-black;
+			transition: all .3s;
+			&:hover
+				fill: alpha(#111, .3);
+		a
+			margin-left: 8px;
+
+@media screen and (max-width 1180px)
+	.footer
+		padding-bottom: 15px
+
+@media screen and (max-width 1030px)
+	.footer
+		padding: 0 25px 45px
+		border-top 2px solid $c-whitegrey
+		margin 0 -25px
+		&.lifted
+			padding: 0 25px 105px
+		&__row
+			padding-top: 35px
+			flex-direction: column
+			align-items: flex-start
+
+		&__pxl
+			margin-top: 30px
+
+
+@media screen and (max-width 650px)
+	.footer
+		&__phone
+			color $c-black
+			font-weight: 600
+			font-size: 18px
+			line-height:  1em
+			margin-bottom 20px
+			display inline-block

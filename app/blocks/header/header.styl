@@ -1,0 +1,94 @@
+.header
+	padding-top 50px
+
+	&__row
+		display flex
+		align-items: center
+		justify-content space-between
+
+	&__block
+		display flex
+		align-items flex-end
+
+	&__logo
+		display inline-block
+		margin-right 30px
+		width 110px
+
+	&__phone
+		color $c-black
+		font-weight: 600
+		text-big()
+		display inline-block
+		margin-right: 40px
+		& .icon
+			display none
+
+	&__social
+		display flex
+		align-items: center
+		a
+			display: flex
+			margin-right 20px
+			width 40px
+			height 40px
+			border 2px solid $c-whitegrey
+			border-radius 50%
+			&:hover
+				@media (min-width 1060px) and (pointer fine)
+					border-color $c-orange
+			svg
+				margin auto
+				width 100%
+				height 100%
+			&:last-child
+				margin-right: 0
+
+@media screen and (max-width 1180px)
+	.header
+		padding-top 15px
+
+@media screen and (max-width 1020px)
+	.header
+		padding-top 30px
+
+		&__row
+			flex-direction: column-reverse
+			align-items: unset
+
+		&__block
+			&:nth-child(2)
+				justify-content space-between
+				flex-direction: row-reverse
+				margin-bottom: 35px
+
+		&__phone
+			margin: 0
+
+@media screen and (max-width 650px)
+	.header
+		&__phone
+			border-radius: 50%
+			background-color $c-orange
+			width 40px
+			height: 40px
+
+			& .text
+				display none
+			& .icon
+				display flex
+				padding 8px
+				svg
+					width 100%
+					height 100%
+					margin: auto
+
+		&__caption
+			text-small()
+			font-weight: 600
+
+		&__logo
+			margin-right: 20px
+
+		&__social
+			margin-right: 15px

@@ -1,0 +1,36 @@
+main.main(v-if="showMain",:key="'mainPage'")
+	.main__top
+		.main__info
+			.main__about
+				h1.main__title.g-subtitle Уборка помещений <nobr>после ремонта</nobr>
+				.main__calcline
+					a(href="javascript://",@click="showCalc = true; showMain = false; collectCalcData();").button.button--big
+						span.button__text Рассчитать стоимость
+					.main__disclaimer Работаем по Екатеринбургу и Свердловской области
+			.main__conds
+				.main__condition
+					.main__promophoto
+						img(src="assets/images/img-flat@2x.jpg", alt="")
+					.main__promotext
+						p 1-комнатная квартира
+						span от 1490 ₽
+				.main__condition
+					.main__promophoto
+							img(src="assets/images/img-office@2x.jpg", alt="")
+					.main__promotext
+						p Офисное помещение
+						span от 45 ₽/м²
+
+		.main__form
+			include ../form/form-main
+
+	.main__bottom
+		.main__perk
+			span Быстро
+			p Уборка день в день при заказе <br> за 3 часа и ранее.
+		.main__perk
+			span Качественно
+			p Специалисты проходят тщательный отбор и проверку на надежность
+		.main__perk
+			span Честно
+			p Если вас что-то не устроит – исправим бесплатно или вернем  деньги.

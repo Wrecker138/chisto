@@ -1,0 +1,175 @@
+.main
+	padding: 75px 0 45px
+
+	&__info
+		width: 100%
+		max-width 750px
+
+	&__top
+		display flex
+		justify-content space-between
+		margin-bottom 55px
+
+	&__about
+		width: 100%
+		max-width 610px
+
+	&__title
+		margin-bottom: 45px
+
+	&__calcline
+		margin-bottom: 65px
+		display flex
+		align-items: center
+		&--calc
+			margin-bottom: 15px
+
+	&__disclaimer
+		opacity .5
+		margin-left 25px
+
+	&__form
+		width 100%
+		max-width 360px
+		padding-top 20px
+		margin-bottom 20px
+		box-shadow $shadowMedium
+
+	&__conds
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+
+	&__condition
+		display flex
+		background-color: #fff
+		width calc(50% - 15px)
+		margin-bottom: 20px
+		box-shadow $shadowMedium
+		&:last-child
+			margin-right 0px
+
+	&__promophoto
+		width 90px
+		flex-shrink: 0
+		img
+			height 100%
+
+	&__promotext
+		padding 15px 30px
+		align-self: center;
+		p
+			margin-bottom: 5px
+			display block
+		span
+			font-weight 600
+
+	&__bottom
+		display flex
+		flex-wrap wrap
+
+	&__perk
+		width calc(100%/3 - 15px)
+		margin-right: 20px
+		margin-bottom: 30px
+		padding-left: 20px
+		border-left 2px solid $c-orange
+		span
+			display block
+			font-weight 600
+			line-height: 1em
+			margin-bottom: 15px
+		&:nth-child(3n)
+			margin-right: 0px
+
+@media screen and (max-width 1180px)
+	.main
+		padding 30px 0 15px
+
+		&__top
+			margin-bottom 30px
+
+		&__calcline
+			flex-direction: column
+			align-items: flex-start
+			margin-bottom: 25px
+
+		&__title
+			margin-bottom 20px
+
+		&__info
+			max-width calc(100% - 375px)
+
+		&__disclaimer
+			margin: 20px 0 0
+			text-small()
+			font-weight: 600;
+
+		&__form
+			padding-top: 0
+			margin-left: 30px;
+
+		&__promotext
+			padding: 10px 25px
+			width 100%
+			text-small()
+
+		&__promophoto
+			flex-shrink: 1
+
+		&__perk
+			width 49%
+			margin: 0 0 2%
+			text-medium()
+			span
+				margin-bottom: 10px
+
+		&__bottom
+			justify-content space-between
+
+@media screen and (max-width 1020px)
+	.main
+		&__top
+			flex-direction: column;
+
+		&__info
+			max-width unset
+			margin-bottom: 30px
+
+		&__promotext
+			text-medium()
+
+		&__promophoto
+			flex-shrink: 0
+
+		&__form
+			max-width unset
+			margin: 0 -25px
+			width: calc(100% + 50px);
+
+		&__bottom
+			flex-direction: column
+
+		&__perk
+			width 100%
+			border-left: 0
+			margin-bottom: 35px
+			padding-left: 0
+			span
+				color $c-orange
+
+@media screen and (max-width 730px)
+	.main
+		&__conds
+			flex-direction: column
+
+		&__condition
+			width 100%
+
+@media screen and (max-width 650px)
+	.main
+		&__promotext
+			line-height: 20px
+
+		&__top
+			margin-bottom: 50px
